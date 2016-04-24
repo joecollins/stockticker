@@ -1,0 +1,54 @@
+.card {
+  background: #efefef;
+  border-radius: 3px;
+  border: 1px solid #272727;
+  padding: 2em;
+  padding-bottom: 3.7em;
+  margin-top: 1em; }
+  .card h2 {
+    margin-top: 4px; }
+  .card h3 {
+    margin-bottom: 25px;
+    margin-top: 0px; }
+  .card ul {
+    padding-left: 0px; }
+  .card li {
+    list-style-type: none; }
+  .card .closebutton {
+    font-size: 2em;
+    position: absolute;
+    right: 2em;
+    top: 34px;
+    text-decoration: none;
+    color: black; }
+  .card .closebutton:hover {
+    text-decoration: none; }
+
+.deckcard {
+  padding: 2em;
+  padding-left: 0.5em; }
+  .deckcard h2 {
+    width: 90%; }
+
+.yes, .no {
+  padding: 0.75em;
+  border-radius: 3px; }
+
+a.yes, a.no {
+  color: black; }
+
+.yes {
+  background: #46EF46; }
+
+.no {
+  background: #FF4040; }
+
+.btn-default {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px; }
+
+.form-control {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px; }
+
+/*# sourceMappingURL=styles.css.map */

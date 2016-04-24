@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="stockTicker">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
+
+    <script src="assets/js/jquery-2.1.4.min.js"></script>
+    <script src="assets/js/angular.min.js"></script>
+
+    <script src="assets/js/main.js"></script>
+
+    </head>
+    <body ng-controller="stockTickerCtrl">
+
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Stock ticker</h1>
+            <form ng-submit="submit()">
+                <label class="control-label">Tickercode: {{tickerName}}</label>
+                <div class="row">
+                <div class="col-md-10 col-sm-10" style="padding-right: 0;">
+                  <input type="text" class="form-control" name="tickername" ng-model="tickerName">
+                </div>
+                <div class="col-md-2 col-sm-2" style="padding-left: 0;">
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="row" ng-show="tickerNameResults != ''">
+        <div class="col-md-6 col-sm-6">
+          <div class="card previewcard">
+            <h2>{{tickerNameResults.name}}</h2><a href="#" ng-click="clearCurrent()" class="closebutton">&times;</a>
+            <ul>
+              <li>Price: <strong>{{tickerNameResults.price | number}}</strong></li>
+            </ul>
+
+            <h3>Add to deck?</h3>
+            <a href="#" ng-click="addToDeck(tickerNameResults)" class="yes">Yes</a>
+            <a href="#" class="no">No</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 col-sm-6" ng-repeat="individual in aggregate">
+          <div class="card deckcard">
+            <h2>{{individual.name}}</h2><a href="#" ng-click="removeCard(individual.symbol)" class="closebutton" id="{{individual.symbol}}">&times;</a>
+            <ul>
+              <li>Symbol: <strong>{{individual.symbol}}</strong></li>
+              <li>Price: <strong>{{individual.price | number}}</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      </div>
+    </div>
+  </body>
+</html>
+
