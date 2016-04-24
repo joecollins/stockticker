@@ -14,16 +14,21 @@ stockTicker.controller("stockTickerCtrl", function($scope, $http) {
 
   function stockTickerApi(symbol){
     if(symbol != undefined){
-      $scope.showCard = "true";
       var tickerUrl = "http://" + location.hostname + "/proxy/?url=" + "http://finance.yahoo.com/webservice/v1/symbols/" + symbol + "/quote?format=json";
       
       $http.get(tickerUrl).
         then(function(response) {
-          //TODO: Switch to return or something
-          $scope.tickerNameResults = response.data.list.resources[0].resource.fields;
-          $scope.tickerStatus = true;
+          var resultsResponse = response.data.list.resources[0].resource.fields;
+
+          if(resultsResponse != undefined){
+            $scope.tickerNameResults = resultsResponse;
+            $scope.tickerStatus = true;
+          } else {
+            $scope.tickerNameResults = "";
+          }
+          
         }, function(response) {
-          console.error("Error! %s", response);
+          //console.error("Error! %s", response);
           $scope.tickerNameResults = "";
         }); 
     }
